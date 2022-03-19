@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyCard</string>
+    <string name="label_business_cards">cartao de visita</string>
+    <string name="label_descripton_new_card">Novo Cartao</string>
+    <string name="label_name">Nome</string>
+    <string name="label_phone">telefone</string>
+    <string name="label_email">E-mail</string>
+    <string name="label_empresa">Empresa</string>
+    <string name="label_cor">Cor</string>
+    <string name="label_confirmar">confirmar</string>
+</resources>
