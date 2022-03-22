@@ -2,9 +2,15 @@ package com.example.mycard.ui;
 
 import android.app.Application;
 
-import com.example.mycard.data.AppDatabase;
+import com.example.mycard.data.BusinessCardRepository;
 
- class App extends Application {
+import org.jetbrains.annotations.NotNull;
 
+public class App extends Application {
+    @NotNull
+    public final BusinessCardRepository repository;
 
+    public App(@NotNull BusinessCardRepository repository) {
+        this.repository = repository;
+    }
 }
