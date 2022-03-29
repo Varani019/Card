@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.mycard.App
 import com.example.mycard.R
 import com.example.mycard.data.Businesscard
 import com.example.mycard.databinding.ActivityAddBusinessCardBinding

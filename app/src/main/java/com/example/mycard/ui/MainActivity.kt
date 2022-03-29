@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.viewModels
+import com.example.mycard.App
 import com.example.mycard.databinding.ActivityMainBinding
+import com.example.mycard.util.Image
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     private val mainViewModel: MainViewModel by  viewModels {
         MainViewModelFactory((application as App).repository)
-
     }
 
     private val adapter by  lazy {BusinessCardAdapter() }
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         binding.tvAdd.setOnClickListener {
             val intent = Intent(this@MainActivity, AddBusinessCardActivity ::class.java)
             startActivity(intent)
+        }
+        adapter.listenerShare = {card ->
+            Image.share(this@MainActivity, card)
+
         }
     }
 
