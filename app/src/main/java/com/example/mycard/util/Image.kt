@@ -1,5 +1,6 @@
 package com.example.mycard.util
 
+import android.content.ContentProvider
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -7,17 +8,18 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.net.Uri
 import android.os.Build
-import android.os.Build.VERSION_CODES.Q
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.FileProvider
+import com.example.mycard.BuildConfig
 import com.example.mycard.R
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-import java.util.*
+
 
 class Image {
     companion object {
@@ -72,7 +74,7 @@ class Image {
                 //DEVICES RODANDO< Q
                 val imagesDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
                 val image = File(imagesDir, filename)
-                shareIntent(context, Uri.fromFile(image))
+                shareIntent(context, FileProvider.getUriForFile(context, "${BuildConfig.APPLICATION_ID}.provider", image))
                 fos = FileOutputStream(image)
             }
             fos?.use {
